@@ -1,10 +1,13 @@
 import React from "react";
+import HeaderComponent from "./component/HeaderComponent";
+import FooterComponent from "./component/FooterComponent";
 
 
 function App() {
   return (
     <div>
-      <h1>start</h1>
+        <HeaderComponent/>
+        <FooterComponent/>
     </div>
   );
 }
