@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import EmployeeService from './Service/EmployeeService';
+import EmployeeService from '../Service/EmployeeService';
 
 const ListEmployeeComponent = () => {
 
@@ -34,6 +34,19 @@ const ListEmployeeComponent = () => {
                 <th>Employee Email</th>
                 <th>Actions</th>
             </thead>
+            <tbody>
+              {employeeArray.map(employee=>
+                <tr id={employee.id}>
+                  <td>{employee.id}</td>
+                  <td>{employee.firstName}</td>
+                  <td>{employee.lastName}</td>
+                  <td>{employee.email}</td>
+                  <td>
+                    <a className='btn btn-info' href=''>Update</a>
+                    <a className='btn btn-danger' href=''>Delete</a>
+                  </td>
+                </tr>)}
+            </tbody>
         </table>
     </div>
   )

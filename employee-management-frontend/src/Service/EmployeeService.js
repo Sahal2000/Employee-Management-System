@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const BASE_URL = "http://localhost:8080/employee";
+const BASE_URL = "http://localhost:8083/employee";
 class EmployeeService {
 
     getAllEmployee(){

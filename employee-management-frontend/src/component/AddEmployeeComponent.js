@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EmployeeService from '../Service/EmployeeService';
+import { useNavigate } from 'react-router-dom';
 
 const AddEmployeeComponent = () => {
+    const [firstName, setFirstName] = useState("John");
+    const [lastName, setLastName] = useState("Doe");
+    const [email, setEmail] = useState("john@gmail.com");
+
+    const employeeData = {firstName,lastName,email};
+    console.log(employeeData);
+
+    function saveEmployee(e) {
+        e.preventDefault();
+        EmployeeService.saveEmployee(employeeData)
+        .then(res=>)
+        .catch(e=>console.log(e));
+    }
+
   return (
     <div>
         <div className='container mt-5'>
@@ -10,15 +26,15 @@ const AddEmployeeComponent = () => {
                     <div className='card-body'>
                         <form>
                             <div className='form-group mb-2'>
-                                <input className='form-control' type='text' placeholder='Enter First Name'/>
+                                <input className='form-control' value={firstName} onChange={(e)=>setFirstName(e.target.value)} type='text' placeholder='Enter First Name'/>
                             </div>
                             <div className='form-group mb-2'>
-                                <input className='form-control' type='text' placeholder='Enter Last Name'/>
+                                <input className='form-control' value={lastName} onChange={(e)=>setLastName(e.target.value)} type='text' placeholder='Enter Last Name'/>
                             </div>
                             <div className='form-group mb-2'>
-                                <input className='form-control' type='text' placeholder='Enter Email'/>
+                                <input className='form-control' value={email} onChange={(e)=>setEmail(e.target.value)} type='text' placeholder='Enter Email'/>
                             </div>
-                            <button className='btn btn-success'>Save</button> {" "}
+                            <button onClick={(e)=>saveEmployee(e)} className='btn btn-success'>Save</button> {" "}
                             <a className='btn btn-danger' href=''>Cancel</a>
                         </form>
                     </div>
