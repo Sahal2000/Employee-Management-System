@@ -7,6 +7,7 @@ const ListEmployeeComponent = () => {
   const [employeeArray, setEmployeeArray] = useState([])
 
   useEffect(()=>{
+    
     getAllEmployee();
   },[]);
 

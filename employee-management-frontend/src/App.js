@@ -5,11 +5,15 @@ import ListEmployeeComponent from "./component/ListEmployeeComponent";
 import AddEmployeeComponent from "./component/AddEmployeeComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+function play() {
+  new Audio(sound).play();
+}
+
 function App() {
   return (
     <BrowserRouter>
       <HeaderComponent />
-      <div className="container">
+      <div className="container">        
         <Routes>
           <Route path="/" element={<ListEmployeeComponent />} />
           <Route path="/employee" element={<ListEmployeeComponent />} />

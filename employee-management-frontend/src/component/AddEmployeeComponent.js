@@ -10,12 +10,6 @@ const AddEmployeeComponent = () => {
     const employeeData = {firstName,lastName,email};
     console.log(employeeData);
 
-    function saveEmployee(e) {
-        e.preventDefault();
-        EmployeeService.saveEmployee(employeeData)
-        .then(res=>)
-        .catch(e=>console.log(e));
-    }
 
   return (
     <div>
