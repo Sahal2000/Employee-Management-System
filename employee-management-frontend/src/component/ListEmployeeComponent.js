@@ -43,7 +43,7 @@ const ListEmployeeComponent = () => {
                   <td>{employee.lastName}</td>
                   <td>{employee.email}</td>
                   <td>
-                    <a className='btn btn-info' href=''>Update</a>
+                    <Link to={`/add-employee/${employee.id}`} className='btn btn-info' href=''>Update</Link>
                     <a className='btn btn-danger' href=''>Delete</a>
                   </td>
                 </tr>)}
