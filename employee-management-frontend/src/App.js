@@ -5,9 +5,7 @@ import ListEmployeeComponent from "./component/ListEmployeeComponent";
 import AddEmployeeComponent from "./component/AddEmployeeComponent";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function play() {
-  new Audio(sound).play();
-}
+
 
 function App() {
   return (

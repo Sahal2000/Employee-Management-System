@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import EmployeeService from '../Service/EmployeeService';
+import EmployeeService from '../service/EmployeeService'
 
 const ListEmployeeComponent = () => {
 

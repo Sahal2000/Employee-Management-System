@@ -1,14 +1,27 @@
-import React, { useState } from 'react'
-import EmployeeService from '../Service/EmployeeService';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import EmployeeService from '../service/EmployeeService';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AddEmployeeComponent = () => {
     const [firstName, setFirstName] = useState("John");
     const [lastName, setLastName] = useState("Doe");
     const [email, setEmail] = useState("john@gmail.com");
+    const navigate = useNavigate();
 
     const employeeData = {firstName,lastName,email};
     console.log(employeeData);
+
+    function saveEmployee(e) {
+        e.preventDefault();
+        if(employeeData.firstName !== "" && employeeData.lastName !== "" && employeeData.email !== "") {
+            EmployeeService.saveEmployee(employeeData)
+            .then(navigate("/employee"))
+            .catch(e=>console.log(e));
+        } 
+        else {
+            alert("Please, fill in all emplty");
+        }
+    }
 
 
   return (
@@ -29,7 +42,7 @@ const AddEmployeeComponent = () => {
                                 <input className='form-control' value={email} onChange={(e)=>setEmail(e.target.value)} type='text' placeholder='Enter Email'/>
                             </div>
                             <button onClick={(e)=>saveEmployee(e)} className='btn btn-success'>Save</button> {" "}
-                            <a className='btn btn-danger' href=''>Cancel</a>
+                            <Link to={"/employee"} className='btn btn-danger' href=''>Cancel</Link>
                         </form>
                     </div>
                 </div>
